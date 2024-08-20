@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ChatCompose</string>
+    <string name="feature_auth">Авторизация</string>
+    <string name="feature_register">Регистрация</string>
+    <string name="feature_chat">Чат</string>
+    <string name="feature_profile">Профиль</string>
+    <string name="btn_auth">Авторизоваться</string>
+    <string name="first_time">Впервые у нас? Зарегистрироваться</string>
+</resources>
