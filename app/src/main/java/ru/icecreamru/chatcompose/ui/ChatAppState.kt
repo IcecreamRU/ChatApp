@@ -7,13 +7,13 @@ import androidx.compose.ui.util.trace
 import androidx.navigation.NavDestination
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
-import androidx.navigation.Navigation
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import kotlinx.coroutines.CoroutineScope
 import ru.icecreamru.chatcompose.features.auth.navigation.AUTH_ROUTE
 import ru.icecreamru.chatcompose.features.auth.navigation.navigateToAuth
+import ru.icecreamru.chatcompose.features.register.navigation.navigateToRegister
 import ru.icecreamru.chatcompose.navigation.TopLevelDestination
 
 @Composable
@@ -54,7 +54,7 @@ class ChatAppState(
 
             when (topLevelDestination) {
                 TopLevelDestination.AUTH -> navController.navigateToAuth(topLevelNavOptions)
-                TopLevelDestination.REGISTER -> TODO()
+                TopLevelDestination.REGISTER -> navController.navigateToRegister(topLevelNavOptions)
                 TopLevelDestination.CHAT -> TODO()
                 TopLevelDestination.PROFILE -> TODO()
             }

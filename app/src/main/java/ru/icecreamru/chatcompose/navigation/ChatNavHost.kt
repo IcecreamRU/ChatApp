@@ -21,6 +21,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import ru.icecreamru.chatcompose.features.auth.navigation.AUTH_ROUTE
 import ru.icecreamru.chatcompose.features.auth.navigation.authScreen
+import ru.icecreamru.chatcompose.features.register.navigation.navigateToRegister
+import ru.icecreamru.chatcompose.features.register.navigation.registerScreen
 import ru.icecreamru.chatcompose.ui.ChatAppState
 
 /**
@@ -42,6 +44,7 @@ fun ChatNavHost(
         startDestination = startDestination,
         modifier = modifier,
     ) {
-        authScreen(onAuthSuccess = {}, onRegister = {})
+        authScreen(onAuthSuccess = {}, onRegister = navController::navigateToRegister)
+        registerScreen()
     }
 }
