@@ -76,6 +76,9 @@ dependencies {
     // Country Picker
     implementation(libs.country.picker)
 
+    //Retrofit
+    implementation(libs.retrofit)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

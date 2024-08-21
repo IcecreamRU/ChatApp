@@ -31,14 +31,16 @@ import ru.icecreamru.fakechatcompose.R
 
 @Composable
 fun AuthScreen(
-    onAuthSuccess: () -> Unit, onRegister: () -> Unit,
+    onAuthSuccess: () -> Unit, onGoToRegistration: () -> Unit,
     viewModel: AuthVIewModel = hiltViewModel(),
 ) {
-    AuthContent(onRegister = onRegister)
+    AuthContent(onGoToRegistration = onGoToRegistration, onAuthClick = { phone ->
+        viewModel.testServerRequest(phone)
+    })
 }
 
 @Composable
-fun AuthContent(onRegister: () -> Unit) {
+fun AuthContent(onGoToRegistration: () -> Unit, onAuthClick: (String) -> Unit) {
     Scaffold(topBar = { ToolbarTitle(stringResource(id = R.string.feature_auth)) }) { paddingValues ->
         Box(
             modifier = Modifier
@@ -55,7 +57,7 @@ fun AuthContent(onRegister: () -> Unit) {
             ) {
                 PhoneField(onDone = {})
                 Button(
-                    onClick = { /*TODO*/ },
+                    onClick = { onAuthClick("testPhone") },
                     modifier = Modifier
                         .padding(start = 16.dp, end = 16.dp, bottom = 16.dp)
                         .align(Alignment.CenterHorizontally)
@@ -64,7 +66,7 @@ fun AuthContent(onRegister: () -> Unit) {
                 }
             }
             TextButton(
-                onClick = { onRegister() },
+                onClick = { onGoToRegistration() },
                 modifier = Modifier.align(Alignment.BottomCenter)
             ) {
                 Text(text = stringResource(id = R.string.first_time))
@@ -103,6 +105,6 @@ private fun PhoneField(modifier: Modifier = Modifier, onDone: () -> Unit) {
 @Composable
 fun AuthContentPreview() {
     ChatComposeTheme {
-        AuthContent(onRegister = {})
+        AuthContent({}, {})
     }
 }
