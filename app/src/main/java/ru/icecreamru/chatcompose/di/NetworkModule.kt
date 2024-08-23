@@ -3,18 +3,16 @@ package ru.icecreamru.chatcompose.di
 import android.content.Context
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import java.util.concurrent.TimeUnit
 import javax.inject.Named
 
-
 @Module
 class NetworkModule {
     @Provides
-    fun provideOkHttpClient(
-        context: Context
-    ): OkHttpClient {
+    fun provideOkHttpClient(@ApplicationContext context: Context): OkHttpClient {
         val okBuilder = OkHttpClient.Builder()
         return okBuilder.build()
     }
