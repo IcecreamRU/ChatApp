@@ -11,7 +11,7 @@ import javax.inject.Named
 
 @Module
 class NetworkModule {
-
+    @Provides
     fun provideOkHttpClient(
         context: Context
     ): OkHttpClient {
